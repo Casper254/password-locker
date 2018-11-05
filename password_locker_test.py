@@ -18,7 +18,7 @@ class TestAccount(unittest.TestCase):
 
         self.assertEqual(self.new_account.username,'Wema')
         self.assertEqual(self.new_account.password,'lock')
-        self.asserEqual(self.new_account.email,'mug@good.com')
+        self.assertEqual(self.new_account.email,'mug@good.com')
 
 #saves account details
     def test_save_account(self):
@@ -57,6 +57,34 @@ class TestAccount(unittest.TestCase):
         self.new_account.delete_account()
         self.assertEqual(len(Account.account_list),1)
 
-#finding 
+#finding password through email
+    def test_find_password_by_email(self):
+
+        '''
+        test to check if we can find the accounts password through entering our email address.
+        '''
+        self.new_account.save_account()
+        test_account = Account('Test', 'passie', 'mug@good.com')
+        test_account.save_account()
+
+        found_account = Account.find_by_email('mug@good.com')
+        self.assertEqual(found_account.email,test_account.email)
+
+    def test_account_exists(self):
+        '''
+        this test checks if we cannot find the contact.
+        '''
+        self.new_account.save_account()
+        test_account = Account('Test', 'passie', 'mug@good.com')
+        test_account.save_account()
+
+        account_exists = Account.account_exist('mug@good.com')
+        self.assertTrue(account_exists)
+
+    def test_display_all_contacts(self):
+        '''
+        method that returns a list of all contacts saved
+        '''
+        self.assertEqual(Account.display_account(),Account.account_list)
 if __name__ == '__main__':
     unittest.main()

@@ -23,3 +23,36 @@ class Account:
         this method deletes a saved account from the account list
         '''
         Account.account_list.remove(self)
+
+    @classmethod
+    def find_by_email(cls,email):
+        '''
+        Method that takes in a number and returns a contact that matches that number.
+
+        Args: 
+            email address: email address to search for
+        Returns:
+            password that matches the email address.
+        '''
+
+        for address in cls.account_list:
+            if address.email == email:
+                return address
+    
+    @classmethod
+    def account_exist(cls, email):
+        '''
+        method that checks if an account exists from the contact list.
+        '''
+        for  account in cls.account_list:
+            if account.email == email:
+                return True
+
+        return False
+
+    @classmethod
+    def display_account(cls):
+        '''
+        method that returns the contact list
+        '''
+        return cls.account_list
