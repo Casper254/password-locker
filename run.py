@@ -26,7 +26,7 @@ def find_account(email):
     return Account.find_by_email(email)
 
 def main():
-    print(What would you like to do?)
+    print('What would you like to do?')
 
     while True:
         print('Use these short codes : ca - create a new account, da - delete account, fc - recover password')
