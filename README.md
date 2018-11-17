@@ -18,7 +18,7 @@ Password locker is an application that is run in bash which gives you freedom to
 + [x] Recover password using email address
 
 ## Installation
-###Requirements
+### Requirements
 * python3.6
 
 ### Cloning the repository
