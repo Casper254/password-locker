@@ -29,11 +29,11 @@ def main():
 
         elif short_code == 'da':
             
-            if display_account():
+            if del_account():
                 print('Heres a list of all your Accounts')
                 print('\n')
 
-                for Account in display_account(): 
+                for Account in del_account(): 
                     print(f'{Account.username}....{Account.email}')
                     print('\n')
 
@@ -45,7 +45,7 @@ def main():
             print('Enter your email address')
             search_email = input()
 
-            if check_existing_account(search_email):
+            if find_account(search_email):
                 search_account = find_account(search_email)
                 print(f'Password....{search_account.password}')
 
